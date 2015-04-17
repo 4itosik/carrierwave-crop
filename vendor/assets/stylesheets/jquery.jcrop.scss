@@ -1,0 +1,180 @@
+//@extend-elements
+//original selectors
+//.jcrop-vline, .jcrop-hline
+/* jquery.Jcrop.css v0.9.12 - MIT License */
+/*
+  The outer-most container in a typical Jcrop instance
+  If you are having difficulty with formatting related to styles
+  on a parent element, place any fixes here or in a like selector
+  You can also style this element if you want to add a border, etc
+  A better method for styling can be seen below with .jcrop-light
+  (Add a class to the holder and style elements for that extended class)
+*/
+%extend_1_jcrop {
+  background: #ffffff url(Jcrop.gif);
+  font-size: 0;
+  position: absolute;
+}
+
+//original selectors
+//.jcrop-light .jcrop-vline, .jcrop-light .jcrop-hline
+%extend_2_jcrop {
+  background: #ffffff;
+  filter: alpha(opacity=70) !important;
+  opacity: .70!important;
+}
+
+//original selectors
+//.jcrop-dark .jcrop-vline, .jcrop-dark .jcrop-hline
+%extend_3_jcrop {
+  background: #000000;
+  filter: alpha(opacity=70) !important;
+  opacity: 0.7 !important;
+}
+
+
+.jcrop-holder {
+  direction: ltr;
+  text-align: left;
+  img {
+    max-width: none;
+  }
+}
+.jcrop-vline {
+  @extend %extend_1_jcrop;
+  height: 100%;
+  width: 1px !important;
+  &.right {
+    right: 0;
+  }
+}
+.jcrop-hline {
+  @extend %extend_1_jcrop;
+  height: 1px !important;
+  width: 100%;
+  &.bottom {
+    bottom: 0;
+  }
+}
+.jcrop-tracker {
+  height: 100%;
+  width: 100%;
+}
+.jcrop-handle {
+  background-color: #333333;
+  border: 1px #eeeeee solid;
+  width: 7px;
+  height: 7px;
+  font-size: 1px;
+  &.ord-n {
+    left: 50%;
+    margin-left: -4px;
+    margin-top: -4px;
+    top: 0;
+  }
+  &.ord-s {
+    bottom: 0;
+    left: 50%;
+    margin-bottom: -4px;
+    margin-left: -4px;
+  }
+  &.ord-e {
+    margin-right: -4px;
+    margin-top: -4px;
+    right: 0;
+    top: 50%;
+  }
+  &.ord-w {
+    left: 0;
+    margin-left: -4px;
+    margin-top: -4px;
+    top: 50%;
+  }
+  &.ord-nw {
+    left: 0;
+    margin-left: -4px;
+    margin-top: -4px;
+    top: 0;
+  }
+  &.ord-ne {
+    margin-right: -4px;
+    margin-top: -4px;
+    right: 0;
+    top: 0;
+  }
+  &.ord-se {
+    bottom: 0;
+    margin-bottom: -4px;
+    margin-right: -4px;
+    right: 0;
+  }
+  &.ord-sw {
+    bottom: 0;
+    left: 0;
+    margin-bottom: -4px;
+    margin-left: -4px;
+  }
+}
+.jcrop-dragbar {
+  &.ord-n {
+    height: 7px;
+    width: 100%;
+    margin-top: -4px;
+  }
+  &.ord-s {
+    height: 7px;
+    width: 100%;
+    bottom: 0;
+    margin-bottom: -4px;
+  }
+  &.ord-e {
+    height: 100%;
+    width: 7px;
+    margin-right: -4px;
+    right: 0;
+  }
+  &.ord-w {
+    height: 100%;
+    width: 7px;
+    margin-left: -4px;
+  }
+}
+.jcrop-light {
+  .jcrop-vline {
+    @extend %extend_2_jcrop;
+  }
+  .jcrop-hline {
+    @extend %extend_2_jcrop;
+  }
+  .jcrop-handle {
+    background-color: #000000;
+    border-color: #ffffff;
+    //Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+    border-radius: 3px;
+  }
+}
+.jcrop-dark {
+  .jcrop-vline {
+    @extend %extend_3_jcrop;
+  }
+  .jcrop-hline {
+    @extend %extend_3_jcrop;
+  }
+  .jcrop-handle {
+    background-color: #ffffff;
+    border-color: #000000;
+    //Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+    border-radius: 3px;
+  }
+}
+.solid-line {
+  .jcrop-vline {
+    background: #ffffff;
+  }
+  .jcrop-hline {
+    background: #ffffff;
+  }
+}
+img.jcrop-preview {
+  max-width: none;
+}
